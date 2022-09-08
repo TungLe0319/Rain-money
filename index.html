@@ -40,23 +40,109 @@
     <main>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-6">
-<div class="card bg-light elevation-2 mt-5 p-3">
-  <p>stache away money and save up to purchase your budgeted items!</p>
-</div>
+          <div class="col-md-6">
+            <div
+              id="budgetform"
+              class="col-md-6 bg-light elevation-2 p-2 mt-5 ms-3 rounded"
+            >
+              <!-- --NOTE------------BUDGET FORM -->
+              <form onsubmit="app.budgetsController.createBudget()">
+                <div class="p-2">
+                  <p>
+                    stache away money and save up to purchase your budgeted
+                    items!
+                  </p>
+                </div>
 
+                <div class="form-floating mb-3">
+                  <input type="" class="form-control" id="${this.Id}" name="name"/>
+                  <label for="name">Create a Budget</label>
+                </div>
+                <div class="form-floating">
+                  <input type="" class="form-control" id="${this.Id}" name="price" />
+                  <label for="price">Set a Price</label>
+                </div>
+
+                <div class="form-floating mt-3">
+                  <select
+                    class="form-select"
+                    id="${this.Id}"
+                    aria-label="Floating label select example"
+                  >
+                    <option selected>Type</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <label for="floatingSelect"> Select a Type</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2 p-1">
+                  Add Budget
+                </button>
+              </form>
+
+              <!-- -------END BUDGET FORM------------------------- -->
+            </div>
           </div>
-          <div class="col-6"></div>
+
+          <div id="budgettemplates" class="col-md-6 mt-4">
+            <!-- BUDGET TEMPLATE HERE STUB -->
+            <!-- <div class="col-md-12">
+              <form onsubmit="">
+              <div class="card bg-dark text-light rounded elevation-2">
+                <div class="p-2 d-flex justify-content-between">
+                  <input
+                    type="checkbox"
+                    placeholder="Budget-Item "
+                    class="ms-2"
+                  />
+                  Theatre(With House Included)
+                  <div class="d-flex justify-content-between">
+                    <div>$360</div>
+                    <div>Of</div>
+                    <div>$1200</div>
+                  </div>
+                </div>
+                <ul class="list-group p-1">
+                  <li class="list-group-item">An item</li>
+                  <li class="list-group-item">A second item</li>
+                  <li class="list-group-item">A third item</li>
+                  <li class="list-group-item">A fourth item</li>
+                  <li class="list-group-item">And a fifth one</li>
+                </ul>
+
+               
+
+                  <div class="p-2 ">
+                    <div class="col-auto">
+                      <label for="" class="col-form-label">add source</label>
+                    </div>
+  
+                    <div class="d-flex">
+                        <div class="col-auto">
+                      <input type="password" id="" class="form-control" aria-describedby="">
+                    </div>
+                    <div class="col-auto mx-2">
+                      <input type="password" id="" class="form-control" aria-describedby="">
+                    </div>
+                    
+                    <button class="btn btn-primary p-1 m-1 w-100" >Add</button>
+                    </div>
+                   
+                  </div>
+
+                </form>
+            
+              </div> -->
+
+
+
+
+            </div>
+          </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
     </main>
     <!-- <footer class="bg-dark text-light">
       <div class="text-center no-select">
