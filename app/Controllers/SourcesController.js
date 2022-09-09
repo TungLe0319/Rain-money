@@ -23,6 +23,7 @@ export class SourcesController {
     }
   }
 
+
   removeSource(id){
     if (window.confirm('are you sure you want to remove this?')) {
       sourcesService.removeSource(id)

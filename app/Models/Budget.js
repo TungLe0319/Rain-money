@@ -1,4 +1,5 @@
 import { appState } from '../AppState.js';
+import { SourcesController } from "../Controllers/SourcesController.js";
 import { generateId } from '../Utils/generateId.js';
 export class Budget {
   /**
@@ -8,28 +9,30 @@ export class Budget {
   constructor(data) {
     this.name = data.name;
     this.price = data.price;
-    this.purchased = data.purchased || false;
+    this.type = data.type;
     this.id = data.id || generateId();
+    this.purchased = data.purchased || false
   }
 
   get BudgetTemplate() {
     return /*html*/ `
-<div class="col-md-12">
+<div class="col-md-12 my-2">
 <form onsubmit="app.sourcesController.createSource('${this.id}')">
-<div class="card bg-dark text-light rounded elevation-2">
+<div class="card  rounded elevation-2">
   <div class="p-2 d-flex justify-content-between">
     <input
       type="checkbox"
       placeholder="Budget-Item "
       class="ms-2 "
     />
+    <span class="text-dark p-1 fs-3 ">${this.type}</span>
     <span class="text-danger">
     ${this.name}
     </span>
     <div class="d-flex justify-content-between">
-      <div >$360</div>
-      <div>Of</div>
-      <div class="text-danger">${this.price}</div>
+      <div  class="text-success">$${this.SourceTotal}</div>
+      <div class="mx-3">Of</div>
+      <div class="text-danger">$${this.price}</div>
     </div>
   </div>
   <ul id="sourceItems" class="list-group p-1">
@@ -50,7 +53,7 @@ export class Budget {
         <label for="body" class="visually-hidden">PayDay</label>
       </div>
       <div class="col-auto mx-2">
-        <input type="number"  class="form-control" name="price">
+        <input type="number" required min="0" name="price" placeholder="0.00">
         <label for="price" class="visually-hidden">AmountGained</label>
       </div>
       
@@ -78,5 +81,11 @@ export class Budget {
       (source) => source.budgetId == this.id
     );
     return sources;
+  }
+
+  get SourceTotal(){
+    let total = 0
+    appState.sources.forEach( source => total += source.price)
+    return total
   }
 }

@@ -30,8 +30,7 @@ createBudget(){
   const form= window.event.target
   let formData= getFormData(form)
 budgetsService.createBudget(formData)
-console.log('formData',formData);
-console.log('appstate',appState.budgets)
+console.log(formData);
 form.reset()
 
     
@@ -40,4 +39,8 @@ form.reset()
   }
 }
 
+
+togglePurchased(){
+  
+}
 }

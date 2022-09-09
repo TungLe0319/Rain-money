@@ -6,7 +6,7 @@ export class Source{
   constructor(data){
 
 this.body = data.body 
-this.price = data.price
+this.price = parseInt(data.price)
 this.budgetId= data.budgetId
 this.id= data.id || generateId()
 
