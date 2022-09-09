@@ -1,30 +1,31 @@
-import { Source } from "../Models/Source.js";
-import { sourcesService } from "../Services/SourcesService.js";
-import { getFormData } from "../Utils/FormHandler.js";
-import { setHTML } from "../Utils/Writer.js";
+import { Source } from '../Models/Source.js';
+import { sourcesService } from '../Services/SourcesService.js';
+import { getFormData } from '../Utils/FormHandler.js';
+import { setHTML } from '../Utils/Writer.js';
 
-export class SourcesController{
+export class SourcesController {
+  constructor() {}
 
-constructor(){
+  // NOTE FORM STUFF
+  createSource(budgetId) {
+    try {
+      window.event.preventDefault();
+      console.log('create Sources working');
+      let form = window.event.target;
+      let formData = getFormData(form);
+      formData.budgetId = budgetId;
+      console.log('okay?', formData);
+      sourcesService.createSource(formData);
 
+      form.reset();
+    } catch (error) {
+      console.error('[CREATE_SOURCE]', error);
+    }
+  }
+
+  removeSource(id){
+    if (window.confirm('are you sure you want to remove this?')) {
+      sourcesService.removeSource(id)
+    }
+  }
 }
-
-// NOTE FORM STUFF
-createSource(budgetId){
-try {
-  window.event.preventDefault()
-  console.log('create Sources working');
-  let form = window.event.target
-  let formData = getFormData(form)
-formData.budgetId=budgetId
-console.log('okay?', formData);
-sourcesService.createSource(formData)
-
-form.reset()
-} catch (error) {
-  console.error('[CREATE_SOURCE]', error);
-}
-
-}
-}
-

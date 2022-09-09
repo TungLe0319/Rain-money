@@ -8,7 +8,10 @@ export class Source{
 this.body = data.body 
 this.price = data.price
 this.budgetId= data.budgetId
-this.id= data.id || generateId
+this.id= data.id || generateId()
+
+
+
   }
 
 
@@ -21,7 +24,7 @@ this.id= data.id || generateId
     <li class="list-group-item d-flex">
     <div>${this.body}</div>
     <div class="mx-4">${this.price}</div>
-    <div><i class="mdi mdi-trash-can"></i></div>
+    <div><i onclick="app.sourcesController.removeSource('${this.id}')" class="mdi mdi-close text-danger selectable rounded"  title="Remove Item"></i></div>
     
     </li>
     `

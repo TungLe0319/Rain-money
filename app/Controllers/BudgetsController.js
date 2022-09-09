@@ -32,7 +32,7 @@ createBudget(){
 budgetsService.createBudget(formData)
 console.log('formData',formData);
 console.log('appstate',appState.budgets)
-// form.reset()
+form.reset()
 
     
   } catch (error) {
