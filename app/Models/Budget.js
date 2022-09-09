@@ -24,7 +24,7 @@ export class Budget {
       type="checkbox"
       placeholder="Budget-Item "
       class="ms-2 "
-    />
+    ${this.price==this.SourceTotal? 'checked' : ''}/>
     <span class="text-dark p-1 fs-3 ">${this.type}</span>
     <span class="text-danger">
     ${this.name}
@@ -85,7 +85,7 @@ export class Budget {
 
   get SourceTotal(){
     let total = 0
-    appState.sources.forEach( source => total += source.price)
+    this.Sources.forEach( source => total += source.price)
     return total
   }
 }
